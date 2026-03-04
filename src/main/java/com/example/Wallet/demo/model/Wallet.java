@@ -3,13 +3,21 @@ package com.example.Wallet.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Wallet {
 
     @Id
@@ -19,7 +27,7 @@ public class Wallet {
     @Column(nullable = false, precision = 19, scale = 2)
     private BigDecimal balance=BigDecimal.ZERO;
 
-    @OneToOne(mappedBy = "wallet")
+    @OneToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(nullable = false, unique = true, name = "user_id")
     private User user;
 

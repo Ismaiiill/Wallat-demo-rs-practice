@@ -15,10 +15,10 @@ import lombok.Setter;
 public class CreateUserRequestDto {
 
     @NotBlank
-    @Size(min = 3, max = 20)
+    @Size(min = 3, max = 50)
     private String username;
 
     @NotBlank
-    @Size(min = 4, max = 20)
+    @Size(min = 4, max = 50)
     private String email;
 }

@@ -18,7 +18,7 @@ public class UserService {
         User user=new User();
         user.setEmail(createUserRequestDto.getEmail().toLowerCase());
         user.setUsername(createUserRequestDto.getUsername().trim());
-        userRepository.save(user);
+
 
         if(userRepository.existsByUsernameIgnoreCase(user.getUsername())){
             throw new IllegalArgumentException("Username already exists");
