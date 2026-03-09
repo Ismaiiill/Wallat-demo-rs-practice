@@ -19,7 +19,7 @@ public class UserService {
     private final UserRepository userRepository;
     private static final Logger log= LoggerFactory.getLogger("sfs");
 
-    public String createUser(CreateUserRequestDto createUserRequestDto) {
+    public User createUser(CreateUserRequestDto createUserRequestDto) {
         User user=new User();
         user.setEmail(createUserRequestDto.getEmail().toLowerCase());
         user.setUsername(createUserRequestDto.getUsername().trim());
@@ -36,6 +36,6 @@ public class UserService {
 
         userRepository.save(user);
 
-        return "creted this user "+ user.getId();
+        return user;
     }
 }

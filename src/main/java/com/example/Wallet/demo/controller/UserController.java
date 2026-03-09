@@ -2,6 +2,7 @@ package com.example.Wallet.demo.controller;
 
 
 import com.example.Wallet.demo.dto.CreateUserRequestDto;
+import com.example.Wallet.demo.model.User;
 import com.example.Wallet.demo.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping()
-    public ResponseEntity<String> createUser(@Valid @RequestBody CreateUserRequestDto createUserRequestDto){
+    public ResponseEntity<User> createUser(@Valid @RequestBody CreateUserRequestDto createUserRequestDto){
         return new ResponseEntity<>(userService.createUser(createUserRequestDto),HttpStatus.CREATED);
     }
 }
