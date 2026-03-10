@@ -39,4 +39,10 @@ public class Wallet {
     private Long version;
 
 
+    //custom constructor for tests
+    public Wallet(UUID id, User user, BigDecimal balance) {
+        this.id=id;
+        this.user=user;
+        this.balance=balance;
+    }
 }
